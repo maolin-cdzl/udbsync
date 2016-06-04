@@ -1,17 +1,18 @@
+import logging
 import pymssql
 from udbtype import *
 from udb import UDB
 
 
 def GenerateUDB():
-    #server = '222.222.46.204:9033'
-    server = '192.168.2.23'
+    server = '222.222.46.204:9033'
+    #server = '192.168.2.23'
     user = 'test'
     password = 'echat_test'
     database = 'test'
 
+    logging.info('Start read from MsSql')
     udb = UDB()
-
     with pymssql.connect(server,user,password,database) as conn:
         with conn.cursor(as_dict=True) as cursor:
             cursor.execute('SELECT Aorg_ID as aid, Aorg_Name as name, Aorg_Parent as parent FROM tb_AgentOrg')
@@ -34,5 +35,6 @@ def GenerateUDB():
             for row in cursor:
                 udb.addUserToGroup(row['uid'],row['gid'])
 
+    logging.info('Read from MsSql done')
     return udb
 
