@@ -5,11 +5,12 @@ from udb import UDB
 
 
 def GenerateUDB():
-    server = '222.222.46.204:9033'
+    server = '119.254.209.41:9433'
+    #server = '222.222.46.204:9033'
     #server = '192.168.2.23'
-    user = 'test'
-    password = 'echat_test'
-    database = 'test'
+    user = 'echat_log'
+    password = 'echat_log'
+    database = 'echat_r1'
 
     logging.info('Start read from MsSql')
     udb = UDB()

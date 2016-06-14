@@ -5,7 +5,7 @@ from udb import UDB
 from udbtype import *
 
 def PersistRedis(udb):
-    r = redis.StrictRedis(host='localhost',port=6379, db=0)
+    r = redis.StrictRedis(host='192.168.1.181',port=6379, db=0)
     
     count = 0
     pipecount = 0
