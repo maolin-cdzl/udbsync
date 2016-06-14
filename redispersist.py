@@ -50,7 +50,7 @@ def PersistRedis(udb):
         for (k,v) in udb.groups.items():
             key = str(k)
             pipe.sadd('db:group',key)
-            pipe.set('db:group:' + key + 'company',v.company)
+            pipe.set('db:group:' + key + ':company',v.company)
             pipe.set('db:group:' + key + ':info',v.to_JSON())
             pipecount += 2
             count += 1
